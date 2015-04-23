@@ -42,6 +42,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+		public bool tilting = false;
+		public GameObject FREAKINCAM;
+
         // Use this for initialization
         private void Start()
         {
@@ -233,8 +236,36 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 
         private void RotateView()
-        {
-            m_MouseLook.LookRotation (transform, m_Camera.transform);
+		{
+
+			//m_MouseLook.LookRotation (transform, m_Camera.transform);
+
+
+
+			Vector3 headChill = new Vector3 (0, 0, 0);
+			Vector3 _headTilt = new Vector3 (0, 0, 20);
+
+			Quaternion headRot = FREAKINCAM.transform.rotation;
+
+			if (Input.GetKey (KeyCode.Q)) {
+				tilting = true;
+			} else {
+				if(FREAKINCAM.transform.rotation.eulerAngles.z>0){
+					FREAKINCAM.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headChill), .5f);
+				}
+				else{
+					tilting=false;
+					m_MouseLook.LookRotation (transform, m_Camera.transform);
+				}
+
+
+			}
+
+			if (tilting) {
+				FREAKINCAM.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (_headTilt), .5f);
+			}
+
+
         }
 
 
