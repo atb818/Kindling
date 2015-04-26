@@ -237,37 +237,35 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void RotateView()
 		{
-
-			//m_MouseLook.LookRotation (transform, m_Camera.transform);
-
-
-
-			Vector3 headChill = new Vector3 (0, 0, 0);
-			Vector3 _headTilt = new Vector3 (0, 0, 20);
-
+			//Define them as current rotation so we don't swing to 0,0,0. Then set tilt/reset amt.
 			Quaternion headRot = FREAKINCAM.transform.rotation;
+			Vector3 headChill = headRot.eulerAngles;
+			Vector3 _headTilt = headRot.eulerAngles;
+			headChill.z = 0;
+			_headTilt.z = 20;
 
-			if (Input.GetKey (KeyCode.Q)) {
-				tilting = true;
-			} else {
-				if(FREAKINCAM.transform.rotation.eulerAngles.z>0){
-					FREAKINCAM.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headChill), .5f);
+
+			//First determine if we're pressing tilt
+			if (Input.GetKey (KeyCode.Q)) tilting = true;
+			else tilting = false;
+
+
+			//If pressing Q, do the tilt
+			if(tilting){
+				FREAKINCAM.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (_headTilt), .2f);
+			}
+			//Otherwise, return to neutral before going back to FPS mode.
+			else {
+				if(FREAKINCAM.transform.rotation.eulerAngles.z > 0.1f){
+					FREAKINCAM.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headChill), .2f);
 				}
-				else{
-					tilting=false;
+				else {
 					m_MouseLook.LookRotation (transform, m_Camera.transform);
 				}
-
-
-			}
-
-			if (tilting) {
-				FREAKINCAM.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (_headTilt), .5f);
 			}
 
 
         }
-
 
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
