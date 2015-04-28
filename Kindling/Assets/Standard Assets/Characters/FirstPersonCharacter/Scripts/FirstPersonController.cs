@@ -43,11 +43,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private AudioSource m_AudioSource;
 
 		public bool tilting = false;
-		public GameObject FREAKINCAM;
+		public bool digging = false;
+		public GameObject playerCam;
+		bool mouseLock = true;
+		string state = "neutral";
+		bool justListened = false;
+		bool justDug = false;
+		
 
         // Use this for initialization
         private void Start()
         {
+			//Init mouse lock
+			Cursor.lockState = CursorLockMode.Locked;
+
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
@@ -64,6 +73,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
+
+			//Mouse lock toggle
+			if (Input.GetKeyDown(KeyCode.T)){
+				if (mouseLock){
+					Cursor.lockState = CursorLockMode.None;
+					mouseLock = false;
+					Debug.Log("Mouse Lock OFF");
+				} else if (mouseLock == false){
+					Cursor.lockState = CursorLockMode.Locked;
+					mouseLock = true;
+					Debug.Log ("Mouse Lock ON");
+				}
+			}
+
             RotateView();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
@@ -238,12 +261,89 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void RotateView()
 		{
 			//Define them as current rotation so we don't swing to 0,0,0. Then set tilt/reset amt.
-			Quaternion headRot = FREAKINCAM.transform.rotation;
+			Quaternion headRot = playerCam.transform.rotation;
 			Vector3 headChill = headRot.eulerAngles;
 			Vector3 _headTilt = headRot.eulerAngles;
+			Vector3 headDig = headRot.eulerAngles;
 			headChill.z = 0;
+			headChill.x = 0;
 			_headTilt.z = 20;
+			headDig.x = 50;
 
+			Debug.Log (state);
+
+			//CONTROLS PROTOTYPE 2 -- 
+
+			switch (state) {
+			case "neutral":
+				//change state
+				if (Input.GetKey (KeyCode.Q)) {
+					state = "listening";
+				} else if (Input.GetKey (KeyCode.E)) {
+					state = "digging";
+				}
+				if (justListened){
+					if(headRot.eulerAngles.z > 0.1f){
+						playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headChill), .2f);
+					}
+					else {
+						m_MouseLook.LookRotation (transform, m_Camera.transform);
+						justListened = false;
+					}
+				} else if (justDug){
+					if(headRot.eulerAngles.x > 0.1f){
+						playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headChill), .2f);
+					}
+					else {
+						m_MouseLook.LookRotation (transform, m_Camera.transform);
+						justDug = false;
+					}
+				} else {
+					m_MouseLook.LookRotation (transform, m_Camera.transform);
+				}
+				break;
+			case "listening":
+				//cock head
+				playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (_headTilt), .2f);
+				//change back to neutral
+				if (Input.GetKeyUp (KeyCode.Q)){
+					justListened = true;
+					state = "neutral";
+				}
+				break;
+			case "digging":
+				//look down
+				playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headDig), .2f);
+				//change back to neutral
+				if (Input.GetKeyUp (KeyCode.E)){
+					justDug = true;
+					state = "neutral";
+				}
+				break;
+			case "squirrel":
+				//look at squirrel
+				break;
+			}
+
+			//CONTROLS PROTOTYPE 1 --
+
+			//KEY INPUTS, change state
+			/*
+			if (Input.GetKey (KeyCode.Q)) {
+				state = "listening";
+			} else if (Input.GetKey (KeyCode.E)) {
+				state = "digging";
+			} else {
+				state = "neutral";
+			}
+			
+			//if (key)
+				//state = blah
+
+			//case "blah"
+				//do stuff
+
+			//LISTENING
 
 			//First determine if we're pressing tilt
 			if (Input.GetKey (KeyCode.Q)) tilting = true;
@@ -252,17 +352,37 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 			//If pressing Q, do the tilt
 			if(tilting){
-				FREAKINCAM.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (_headTilt), .2f);
+				playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (_headTilt), .2f);
 			}
 			//Otherwise, return to neutral before going back to FPS mode.
 			else {
-				if(FREAKINCAM.transform.rotation.eulerAngles.z > 0.1f){
-					FREAKINCAM.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headChill), .2f);
+				if(headRot.eulerAngles.z > 0.1f){
+					playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headChill), .2f);
 				}
 				else {
 					m_MouseLook.LookRotation (transform, m_Camera.transform);
 				}
 			}
+
+			//DIGGING
+			
+			//First determine if we're pressing dig
+			if (Input.GetKey (KeyCode.E)) {
+				digging = true;
+				playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headDig), .2f);
+			} else {
+				if (digging && headRot.eulerAngles.x > 0.1f) {
+					playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headChill), .2f);
+				} else if (digging){
+					digging = false;
+					m_MouseLook.Init(transform , m_Camera.transform);
+				}
+			}
+
+			if (!digging) {
+				m_MouseLook.LookRotation (transform, m_Camera.transform);
+			}
+			*/
 
 
         }
