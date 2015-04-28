@@ -49,6 +49,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		string state = "neutral";
 		bool justListened = false;
 		bool justDug = false;
+		public GameObject digParticles;
 		
 
         // Use this for initialization
@@ -300,6 +301,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 					}
 				} else {
 					m_MouseLook.LookRotation (transform, m_Camera.transform);
+					digParticles.SetActive(false);
 				}
 				break;
 			case "listening":
@@ -314,8 +316,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			case "digging":
 				//look down
 				playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headDig), .2f);
+				//particle effect
+				digParticles.SetActive(true);
 				//change back to neutral
 				if (Input.GetKeyUp (KeyCode.E)){
+					digParticles.SetActive(false);
 					justDug = true;
 					state = "neutral";
 				}
