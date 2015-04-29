@@ -80,13 +80,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
 				if (mouseLock){
 					Cursor.lockState = CursorLockMode.None;
 					mouseLock = false;
+					Cursor.visible = true;
 					Debug.Log("Mouse Lock OFF");
 				} else if (mouseLock == false){
 					Cursor.lockState = CursorLockMode.Locked;
 					mouseLock = true;
+					Cursor.visible = false;
 					Debug.Log ("Mouse Lock ON");
 				}
 			}
+
+			speedManager ();
 
             RotateView();
             // the jump state needs to read here to make sure it is not missed
@@ -257,17 +261,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 StartCoroutine(!m_IsWalking ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
             }
         }
-
+		private Vector3 headChill = Vector3.zero;
 
         private void RotateView()
 		{
 			//Define them as current rotation so we don't swing to 0,0,0. Then set tilt/reset amt.
 			Quaternion headRot = playerCam.transform.rotation;
-			Vector3 headChill = headRot.eulerAngles;
+			//Vector3 headChill;// = headRot.eulerAngles;
 			Vector3 _headTilt = headRot.eulerAngles;
 			Vector3 headDig = headRot.eulerAngles;
-			headChill.z = 0;
-			headChill.x = 0;
+			//headChill.z = 0;
+			//headChill.x = 0;
 			_headTilt.z = 20;
 			headDig.x = 50;
 
@@ -279,8 +283,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			case "neutral":
 				//change state
 				if (Input.GetKey (KeyCode.Q)) {
+					headChill = headRot.eulerAngles;
 					state = "listening";
 				} else if (Input.GetKey (KeyCode.E)) {
+					headChill = headRot.eulerAngles;
 					state = "digging";
 				}
 				if (justListened){
@@ -288,7 +294,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 						playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headChill), .2f);
 					}
 					else {
-						m_MouseLook.LookRotation (transform, m_Camera.transform);
 						justListened = false;
 					}
 				} else if (justDug){
@@ -296,7 +301,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 						playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headChill), .2f);
 					}
 					else {
-						m_MouseLook.LookRotation (transform, m_Camera.transform);
 						justDug = false;
 					}
 				} else {
@@ -391,6 +395,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 
         }
+
+		void speedManager(){
+			if (Input.GetKey (KeyCode.S)) {
+				m_WalkSpeed = 2.5f;
+			} else {m_WalkSpeed = 5;}
+		}
 
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
