@@ -68,6 +68,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+
+			digParticles.SetActive (false);
         }
 
 
@@ -262,6 +264,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 		private Vector3 headChill = Vector3.zero;
+		private Vector3 headDef = Vector3.zero;
 
         private void RotateView()
 		{
@@ -273,6 +276,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			//headChill.z = 0;
 			//headChill.x = 0;
 			_headTilt.z = 20;
+			_headTilt.x = 0;
 			headDig.x = 50;
 
 			Debug.Log (state);
@@ -289,44 +293,43 @@ namespace UnityStandardAssets.Characters.FirstPerson
 					headChill = headRot.eulerAngles;
 					state = "digging";
 				}
-				if (justListened){
-					if(headRot.eulerAngles.z > 0.1f){
-						playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headChill), .2f);
-					}
-					else {
-						justListened = false;
-					}
-				} else if (justDug){
-					if(headRot.eulerAngles.x > 0.1f){
-						playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headChill), .2f);
-					}
-					else {
-						justDug = false;
-					}
-				} else {
+				else{
 					m_MouseLook.LookRotation (transform, m_Camera.transform);
-					digParticles.SetActive(false);
 				}
+					
 				break;
 			case "listening":
 				//cock head
-				playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (_headTilt), .2f);
+				if (Input.GetKey (KeyCode.Q)) {
+					playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (_headTilt), .2f);
+				}
+				else{
+					if(headRot.eulerAngles.z > 0.1f){
+						playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headChill), .2f);
+					}
 				//change back to neutral
-				if (Input.GetKeyUp (KeyCode.Q)){
-					justListened = true;
-					state = "neutral";
+					else{
+						state = "neutral";
+					}
 				}
 				break;
 			case "digging":
 				//look down
-				playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headDig), .2f);
-				//particle effect
-				digParticles.SetActive(true);
+				if (Input.GetKey (KeyCode.E)){
+					playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headDig), .2f);
+					//particle effect
+					digParticles.SetActive(true);
+				}
 				//change back to neutral
-				if (Input.GetKeyUp (KeyCode.E)){
+				else{
 					digParticles.SetActive(false);
-					justDug = true;
-					state = "neutral";
+					if(Mathf.Abs(headRot.eulerAngles.x - headChill.x) > .1f){
+						playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headChill), .2f);
+					}
+					else {
+						state = "neutral";
+					}
+
 				}
 				break;
 			case "squirrel":
