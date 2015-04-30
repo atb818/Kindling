@@ -7,8 +7,6 @@ Project("{ABDC848A-A15C-9809-01F8-F9E5530B34D0}") = "Kindling", "Assembly-CSharp
 EndProject
 Project("{ABDC848A-A15C-9809-01F8-F9E5530B34D0}") = "Kindling", "Assembly-CSharp-Editor.csproj", "{354F017D-0B3D-69D8-4DC5-E452EA3346A6}"
 EndProject
-Project("{ABDC848A-A15C-9809-01F8-F9E5530B34D0}") = "Kindling", "Assembly-UnityScript-Editor.unityproj", "{BC4A5AF2-15EA-AEC0-FDBE-FEB054DB7714}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,15 +25,30 @@ Global
 		{354F017D-0B3D-69D8-4DC5-E452EA3346A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{354F017D-0B3D-69D8-4DC5-E452EA3346A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{354F017D-0B3D-69D8-4DC5-E452EA3346A6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BC4A5AF2-15EA-AEC0-FDBE-FEB054DB7714}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC4A5AF2-15EA-AEC0-FDBE-FEB054DB7714}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC4A5AF2-15EA-AEC0-FDBE-FEB054DB7714}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC4A5AF2-15EA-AEC0-FDBE-FEB054DB7714}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-							GlobalSection(MonoDevelopProperties) = preSolution
+																										GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.inheritsSet = null
+		$1.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $2
+		$2.inheritsSet = Mono
+		$2.inheritsScope = text/x-csharp
+		$2.scope = text/x-csharp
+		$0.TextStylePolicy = $3
+		$3.FileWidth = 120
+		$3.TabWidth = 4
+		$3.IndentWidth = 4
+		$3.EolMarker = Unix
+		$3.inheritsSet = Mono
+		$3.inheritsScope = text/plain
+		$3.scope = text/plain
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
