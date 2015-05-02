@@ -2,22 +2,8 @@ Base path: /Applications/Unity(5)/Unity(5).app/Contents
 Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-2095169920
 Cmd: getPlatforms
 Cmd: compileSnippet
-  api=0 type=0 insize=818 outsize=591 kw=FOG_EXP2 ok=1
+  api=0 type=0 insize=3083 outsize=3086 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF VERTEXLIGHT_ON ok=1
 Cmd: compileSnippet
-  api=0 type=1 insize=818 outsize=6 kw=FOG_EXP2 ok=1
+  api=0 type=0 insize=3083 outsize=2624 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF VERTEXLIGHT_ON ok=1
 Cmd: compileSnippet
-  api=0 type=0 insize=982 outsize=10079 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF FOG_EXP2 ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=982 outsize=6 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF FOG_EXP2 ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=7257 outsize=4478 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF FOG_EXP2 ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=7257 outsize=6 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF FOG_EXP2 ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=938 outsize=6317 kw=POINT SHADOWS_OFF FOG_EXP2 ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=938 outsize=6 kw=POINT SHADOWS_OFF FOG_EXP2 ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=4694 outsize=3423 kw=POINT FOG_EXP2 ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=4694 outsize=6 kw=POINT FOG_EXP2 ok=1
+  api=0 type=0 insize=1454 outsize=458 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF VERTEXLIGHT_ON ok=1
