@@ -12,9 +12,11 @@ public class WaterSplash : MonoBehaviour {
 	
 	// Update is called once per frame
 	void OnTriggerEnter (Collider other) {
+		if (other.CompareTag("Player")){
 		AudioSource audio = GetComponent<AudioSource>();
 		audio.PlayOneShot(Splash, 1f);
 		Debug.Log("audio hit");
+		}
 	
 	}
 }

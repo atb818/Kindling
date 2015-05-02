@@ -42,22 +42,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
-		public bool tilting = false;
-		public bool digging = false;
-		public GameObject playerCam;
-		bool mouseLock = true;
-		string state = "neutral";
-		bool justListened = false;
-		bool justDug = false;
-		public GameObject digParticles;
-		
-
         // Use this for initialization
         private void Start()
         {
-			//Init mouse lock
-			Cursor.lockState = CursorLockMode.Locked;
-
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
@@ -68,32 +55,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
-
-			digParticles.SetActive (false);
         }
 
 
         // Update is called once per frame
         private void Update()
         {
-
-			//Mouse lock toggle
-			if (Input.GetKeyDown(KeyCode.T)){
-				if (mouseLock){
-					Cursor.lockState = CursorLockMode.None;
-					mouseLock = false;
-					Cursor.visible = true;
-					Debug.Log("Mouse Lock OFF");
-				} else if (mouseLock == false){
-					Cursor.lockState = CursorLockMode.Locked;
-					mouseLock = true;
-					Cursor.visible = false;
-					Debug.Log ("Mouse Lock ON");
-				}
-			}
-
-			speedManager ();
-
             RotateView();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
@@ -263,147 +230,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 StartCoroutine(!m_IsWalking ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
             }
         }
-		private Vector3 headChill = Vector3.zero;
-		private Vector3 headDef = Vector3.zero;
+
 
         private void RotateView()
-		{
-			//Define them as current rotation so we don't swing to 0,0,0. Then set tilt/reset amt.
-			Quaternion headRot = playerCam.transform.rotation;
-			//Vector3 headChill;// = headRot.eulerAngles;
-			Vector3 _headTilt = headRot.eulerAngles;
-			Vector3 headDig = headRot.eulerAngles;
-			//headChill.z = 0;
-			//headChill.x = 0;
-			_headTilt.z = 20;
-			_headTilt.x = 0;
-			headDig.x = 50;
-
-			Debug.Log (state);
-
-			//CONTROLS PROTOTYPE 2 -- 
-
-			switch (state) {
-			case "neutral":
-				//change state
-				if (Input.GetKey (KeyCode.Q)) {
-					headChill = headRot.eulerAngles;
-					state = "listening";
-				} else if (Input.GetKey (KeyCode.E)) {
-					headChill = headRot.eulerAngles;
-					state = "digging";
-				}
-				else{
-					m_MouseLook.LookRotation (transform, m_Camera.transform);
-				}
-					
-				break;
-			case "listening":
-				//cock head
-				if (Input.GetKey (KeyCode.Q)) {
-					playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (_headTilt), .2f);
-				}
-				else{
-					if(headRot.eulerAngles.z > 0.1f){
-						playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headChill), .2f);
-					}
-				//change back to neutral
-					else{
-						state = "neutral";
-					}
-				}
-				break;
-			case "digging":
-				//look down
-				if (Input.GetKey (KeyCode.E)){
-					playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headDig), .2f);
-					//particle effect
-					digParticles.SetActive(true);
-				}
-				//change back to neutral
-				else{
-					digParticles.SetActive(false);
-					if(Mathf.Abs(headRot.eulerAngles.x - headChill.x) > .1f){
-						playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headChill), .2f);
-					}
-					else {
-						state = "neutral";
-					}
-
-				}
-				break;
-			case "squirrel":
-				//look at squirrel
-				break;
-			}
-
-			//CONTROLS PROTOTYPE 1 --
-
-			//KEY INPUTS, change state
-			/*
-			if (Input.GetKey (KeyCode.Q)) {
-				state = "listening";
-			} else if (Input.GetKey (KeyCode.E)) {
-				state = "digging";
-			} else {
-				state = "neutral";
-			}
-			
-			//if (key)
-				//state = blah
-
-			//case "blah"
-				//do stuff
-
-			//LISTENING
-
-			//First determine if we're pressing tilt
-			if (Input.GetKey (KeyCode.Q)) tilting = true;
-			else tilting = false;
-
-
-			//If pressing Q, do the tilt
-			if(tilting){
-				playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (_headTilt), .2f);
-			}
-			//Otherwise, return to neutral before going back to FPS mode.
-			else {
-				if(headRot.eulerAngles.z > 0.1f){
-					playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headChill), .2f);
-				}
-				else {
-					m_MouseLook.LookRotation (transform, m_Camera.transform);
-				}
-			}
-
-			//DIGGING
-			
-			//First determine if we're pressing dig
-			if (Input.GetKey (KeyCode.E)) {
-				digging = true;
-				playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headDig), .2f);
-			} else {
-				if (digging && headRot.eulerAngles.x > 0.1f) {
-					playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headChill), .2f);
-				} else if (digging){
-					digging = false;
-					m_MouseLook.Init(transform , m_Camera.transform);
-				}
-			}
-
-			if (!digging) {
-				m_MouseLook.LookRotation (transform, m_Camera.transform);
-			}
-			*/
-
-
+        {
+            m_MouseLook.LookRotation (transform, m_Camera.transform);
         }
 
-		void speedManager(){
-			if (Input.GetKey (KeyCode.S)) {
-				m_WalkSpeed = 2.5f;
-			} else {m_WalkSpeed = 5;}
-		}
 
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
