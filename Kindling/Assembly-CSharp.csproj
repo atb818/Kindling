@@ -52,6 +52,7 @@
      <Compile Include="Assets\WaterSplash.cs" />
      <Compile Include="Assets\controller\mouseLook.cs" />
      <Compile Include="Assets\controller\playerController.cs" />
+     <Compile Include="Assets\deathWhine.cs" />
      <Compile Include="Assets\headTilt.cs" />
      <Compile Include="Assets\lightManager.cs" />
      <Compile Include="Assets\listenManager.cs" />
