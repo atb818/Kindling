@@ -2,6 +2,13 @@ Base path: C:/Program Files/Unity/Editor/Data
 Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-15944
 Cmd: getPlatforms
 Cmd: compileSnippet
+<<<<<<< HEAD
+  api=0 type=0 insize=3083 outsize=3086 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF VERTEXLIGHT_ON ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=3083 outsize=2624 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF VERTEXLIGHT_ON ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=1454 outsize=458 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF VERTEXLIGHT_ON ok=1
+=======
   api=4 type=0 insize=541 outsize=1404 kw=SHADOWS_CUBE ok=1
 Cmd: compileSnippet
   api=4 type=1 insize=541 outsize=681 kw=SHADOWS_CUBE ok=1
@@ -23,3 +30,4 @@ Cmd: compileSnippet
   api=4 type=0 insize=3213 outsize=3825 kw=DIRECTIONAL SHADOWS_SCREEN ok=1
 Cmd: compileSnippet
   api=4 type=1 insize=3213 outsize=3411 kw=DIRECTIONAL SHADOWS_SCREEN ok=1
+>>>>>>> c703b37929c3e0e92fba47e86d125e130b3375ca
