@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: 52c17f82885e542f5b32e3050a8a75de
-timeCreated: 1430424543
+guid: 40f17932bdcb5a74bbf0f5f135a3a967
+timeCreated: 1430770907
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: pPipe2
+    100000: polySurface4
     100002: //RootNode
-    400000: pPipe2
+    400000: polySurface4
     400002: //RootNode
-    2300000: pPipe2
-    3300000: pPipe2
-    4300000: pPipe2
-    6400000: pPipe2
+    2300000: polySurface4
+    3300000: polySurface4
+    4300000: polySurface4
+    6400000: polySurface4
   materials:
     importMaterials: 1
     materialName: 0
