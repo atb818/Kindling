@@ -82,6 +82,21 @@ ModelImporter:
     4300024: pTorus7
     4300026: pTorus8
     4300028: pTorus9
+    6400000: pPipe1
+    6400002: pPipe2
+    6400004: pPipe3
+    6400006: pPipe4
+    6400008: pPyramid4
+    6400010: pSphere8
+    6400012: pTorus1
+    6400014: pTorus2
+    6400016: pTorus3
+    6400018: pTorus4
+    6400020: pTorus5
+    6400022: pTorus6
+    6400024: pTorus7
+    6400026: pTorus8
+    6400028: pTorus9
   materials:
     importMaterials: 1
     materialName: 0
@@ -103,7 +118,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0

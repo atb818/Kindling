@@ -1,18 +1,17 @@
 fileFormatVersion: 2
-guid: bf4ecb5c670f74342abd5ae3dae20a22
-timeCreated: 1430764698
+guid: 0790d1aa1fbae8742b85337d1bf1aefa
+timeCreated: 1430769054
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: //RootNode
-    100002: pedestal:Mesh
+    100002: pSphere1
     400000: //RootNode
-    400002: pedestal:Mesh
-    2300000: pedestal:Mesh
-    3300000: pedestal:Mesh
-    4300000: pedestal:Mesh
-    6400000: pedestal:Mesh
+    400002: pSphere1
+    2300000: pSphere1
+    3300000: pSphere1
+    4300000: pSphere1
   materials:
     importMaterials: 1
     materialName: 0
@@ -34,7 +33,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
