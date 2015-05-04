@@ -155,7 +155,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="ShaderForge">
- <HintPath>C:/Users/andro_000/Documents/Parsons/Kindling/Kindling/Assets/ShaderForge/Editor/ShaderForge.dll</HintPath>
+ <HintPath>C:/Users/andro_000/Documents/Parsons/Kindling v2/Kindling/Assets/ShaderForge/Editor/ShaderForge.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>

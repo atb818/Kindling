@@ -39,17 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-<<<<<<< HEAD
-	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
-	</Reference>
-	<Reference Include="UnityEditor">
-	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
-=======
 	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
 	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
->>>>>>> 8625920cfddb08a0152c9035748549fd95856a1e
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -169,40 +162,13 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
  <Reference Include="UnityEngine.UI">
-<<<<<<< HEAD
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.Graphs">
- <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.Android.Extensions">
- <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.iOS.Extensions">
- <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.BB10.Extensions">
- <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/BlackBerryPlayer/UnityEditor.BB10.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.WebGL.Extensions">
- <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.LinuxStandalone.Extensions">
- <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.WindowsStandalone.Extensions">
- <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.OSXStandalone.Extensions">
- <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
-=======
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="ShaderForge">
- <HintPath>C:/Users/andro_000/Documents/Parsons/Kindling/Kindling/Assets/ShaderForge/Editor/ShaderForge.dll</HintPath>
+ <HintPath>C:/Users/andro_000/Documents/Parsons/Kindling v2/Kindling/Assets/ShaderForge/Editor/ShaderForge.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
@@ -233,7 +199,6 @@
  </Reference>
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/macstandalonesupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
->>>>>>> 8625920cfddb08a0152c9035748549fd95856a1e
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

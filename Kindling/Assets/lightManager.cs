@@ -3,7 +3,7 @@ using System.Collections;
 
 public class lightManager : MonoBehaviour {
 
-	public Light lt;
+	Light lt;
 	public float ltGradient = 0.2f;
 	public float ltLimit = 1f;
 
@@ -28,7 +28,10 @@ public class lightManager : MonoBehaviour {
 			}
 			if (this.gameObject.CompareTag ("dirLight") && lt.intensity < ltLimit) {
 				lt.intensity = lt.intensity + (ltGradient * 3);
-			} else if (this.gameObject.CompareTag ("listLight") && lt.intensity > ltLimit) {
+			} else if (lt.intensity > ltLimit){
+				lt.intensity = ltLimit;
+			}
+			else if (this.gameObject.CompareTag ("listLight") && lt.intensity > ltLimit) {
 				lt.intensity = lt.intensity - (ltGradient * 3);
 			}
 

@@ -50,6 +50,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		bool justListened = false;
 		bool justDug = false;
 		public GameObject digParticles;
+		public GameObject digParticles2;
 		
 
         // Use this for initialization
@@ -70,6 +71,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_MouseLook.Init(transform , m_Camera.transform);
 
 			digParticles.SetActive (false);
+			digParticles2.SetActive (false);
+
         }
 
 
@@ -323,10 +326,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
 					playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headDig), .2f);
 					//particle effect
 					digParticles.SetActive(true);
+					digParticles2.SetActive(true);
+
 				}
 				//change back to neutral
 				else{
 					digParticles.SetActive(false);
+					digParticles2.SetActive (false);
+
 					if(Mathf.Abs(headRot.eulerAngles.x - headChill.x) > .1f){
 						playerCam.transform.rotation = Quaternion.Slerp (headRot, Quaternion.Euler (headChill), .2f);
 					}
