@@ -1,19 +1,8 @@
 ﻿<Properties>
-<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/WaterSplash.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\listenManager.cs">
     <Files>
-      <File FileName="Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs" Line="258" Column="1" />
-      <File FileName="Assets/WaterSplash.cs" Line="17" Column="33" />
-      <File FileName="Assets/Editor/ExportTerrain.js" Line="51" Column="10" />
-=======
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\deathWhine.cs">
-    <Files>
-      <File FileName="Assets\listenManager.cs" Line="21" Column="1" />
-      <File FileName="Assets\lightManager.cs" Line="7" Column="31" />
-      <File FileName="Assets\deathWhine.cs" Line="10" Column="1" />
->>>>>>> 8625920cfddb08a0152c9035748549fd95856a1e
+      <File FileName="Assets\listenManager.cs" Line="34" Column="41" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
