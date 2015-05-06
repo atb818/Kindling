@@ -17,6 +17,8 @@ ModelImporter:
     3300002: pasted__pPyramid12_group
     4300000: pasted__pCylinder7
     4300002: pasted__pPyramid12_group
+    6400000: pasted__pCylinder7
+    6400002: pasted__pPyramid12_group
   materials:
     importMaterials: 1
     materialName: 0
@@ -38,7 +40,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0

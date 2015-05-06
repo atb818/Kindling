@@ -17,6 +17,8 @@ ModelImporter:
     3300002: tree_stump:Mesh
     4300000: pPlane1
     4300002: tree_stump:Mesh
+    6400000: pPlane1
+    6400002: tree_stump:Mesh
   materials:
     importMaterials: 1
     materialName: 0
@@ -38,7 +40,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
