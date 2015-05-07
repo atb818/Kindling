@@ -107,6 +107,26 @@ ModelImporter:
     4300034: polySurface75_polySurface632
     4300036: polySurface75_polySurface633
     4300038: polySurface75_polySurface634
+    6400000: pCube289
+    6400002: polySurface555_polySurface75
+    6400004: polySurface566
+    6400006: polySurface571
+    6400008: polySurface75_polySurface556
+    6400010: polySurface75_polySurface557
+    6400012: polySurface75_polySurface558
+    6400014: polySurface75_polySurface561
+    6400016: polySurface75_polySurface562
+    6400018: polySurface75_polySurface563
+    6400020: polySurface75_polySurface564
+    6400022: polySurface75_polySurface570
+    6400024: polySurface75_polySurface573
+    6400026: polySurface75_polySurface579
+    6400028: polySurface75_polySurface592
+    6400030: polySurface75_polySurface603
+    6400032: polySurface75_polySurface631
+    6400034: polySurface75_polySurface632
+    6400036: polySurface75_polySurface633
+    6400038: polySurface75_polySurface634
   materials:
     importMaterials: 1
     materialName: 0
@@ -128,7 +148,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0

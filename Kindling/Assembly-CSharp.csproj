@@ -54,10 +54,12 @@
      <Compile Include="Assets\controller\mouseLook.cs" />
      <Compile Include="Assets\controller\playerController.cs" />
      <Compile Include="Assets\deathWhine.cs" />
+     <Compile Include="Assets\digRocks.cs" />
      <Compile Include="Assets\getDug.cs" />
      <Compile Include="Assets\headTilt.cs" />
      <Compile Include="Assets\lightManager.cs" />
      <Compile Include="Assets\listenManager.cs" />
+     <Compile Include="Assets\rockFall.cs" />
      <Compile Include="Assets\testTeleport.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
