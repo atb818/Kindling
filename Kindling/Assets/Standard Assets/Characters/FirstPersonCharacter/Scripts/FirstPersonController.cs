@@ -28,6 +28,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
 
+
         private Camera m_Camera;
         private bool m_Jump;
         private float m_YRotation;
@@ -51,6 +52,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		bool justDug = false;
 		public GameObject digParticles;
 		public GameObject digParticles2;
+		public AudioClip pantSound;
 		
 
         // Use this for initialization
@@ -79,6 +81,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
+
+			pantManager ();
 
 			//Mouse lock toggle
 			if (Input.GetKeyDown(KeyCode.T)){
@@ -349,6 +353,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			}
 
         }
+
+		void pantManager(){
+			if (Input.GetKeyUp (KeyCode.W) || Input.GetKeyUp (KeyCode.UpArrow)) {
+				m_AudioSource.clip = pantSound;
+				m_AudioSource.Play();
+			}
+
+		}
 
 		void speedManager(){
 			//called within RotateView
