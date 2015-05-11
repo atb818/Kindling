@@ -5,7 +5,7 @@ public class lightManager : MonoBehaviour {
 
 	Light lt;
 	public float ltGradient = 0.2f;
-	public float ltLimit = 2f;
+	public float ltLimit;
 
 	void Start () {
 		lt = GetComponent<Light>();
