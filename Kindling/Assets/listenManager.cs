@@ -14,7 +14,7 @@ public class listenManager : MonoBehaviour {
 	void Start () {
 
 		audio = GetComponent<AudioSource> ();
-		audio.volume = 1;
+		audio.volume = 0;
 
 		mAudio = muffledAudio.GetComponent<AudioSource> ();
 		mAudio.volume = 0;

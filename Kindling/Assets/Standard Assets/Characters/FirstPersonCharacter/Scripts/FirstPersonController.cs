@@ -82,7 +82,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void Update()
         {
 
-			pantManager ();
+			//pantManager ();
 
 			//Mouse lock toggle
 			if (Input.GetKeyDown(KeyCode.T)){

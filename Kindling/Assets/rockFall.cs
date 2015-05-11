@@ -14,7 +14,7 @@ public class rockFall : MonoBehaviour {
 	void Update () {
 	
 		if (gameObject.GetComponent<Rigidbody> ().isKinematic == false && transform.localScale.x > .1f) {
-			transform.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
+			transform.localScale -= new Vector3(0.005f, 0.005f, 0.005f);
 		}
 		if (transform.localScale.x <= .1f) {
 			gameObject.SetActive (false);

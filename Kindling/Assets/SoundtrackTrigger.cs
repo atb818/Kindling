@@ -3,16 +3,28 @@ using System.Collections;
 
 public class SoundtrackTrigger : MonoBehaviour {
 	public AudioClip Soundtrack;
+	AudioSource audio;
 
-	// Use this for initialization
 	void Start () {
-	
+		audio = GetComponent<AudioSource>();
+	}
+
+	void Update () {
+		if (Input.GetKey (KeyCode.Mouse0)) {
+			//audio.volume = audio.volume - .05f;
+			//if (audio.volume <= 0.1f){
+				audio.volume = 0.15f;
+			//}
+		} else {
+			//audio.volume = audio.volume + .05f;
+			//if  (audio.volume >= .45f){
+				audio.volume = .45f;
+			//}
+		}
 	}
 	
-	// Update is called once per frame
 	void OnTriggerEnter (Collider other) {
 		if (other.CompareTag("Player")){
-			AudioSource audio = GetComponent<AudioSource>();
 			audio.PlayOneShot(Soundtrack, 1f);
 			Debug.Log("Soundtrack played");
 		}
