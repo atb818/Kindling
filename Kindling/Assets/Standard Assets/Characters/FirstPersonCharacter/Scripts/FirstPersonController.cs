@@ -283,7 +283,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			//headChill.x = 0;
 			_headTilt.z = 20;
 			//_headTilt.x = 0;
-			headDig.x = 50;
+			headDig.x = 25;
 
 			//Debug.Log (state);
 
