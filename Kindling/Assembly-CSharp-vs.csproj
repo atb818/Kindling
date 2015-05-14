@@ -68,6 +68,7 @@
      <Compile Include="Assets\listenMngrAlt.cs" />
      <Compile Include="Assets\panting.cs" />
      <Compile Include="Assets\rockFall.cs" />
+     <Compile Include="Assets\setInactive.cs" />
      <Compile Include="Assets\soundOfDig.cs" />
      <Compile Include="Assets\takePendant.cs" />
      <Compile Include="Assets\testTeleport.cs" />
