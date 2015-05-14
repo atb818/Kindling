@@ -42,16 +42,20 @@ public class listenManager : MonoBehaviour {
 				}
 			} */
 			if (audioPlaying == false){
-				mAudio.volume = .3f;
+				mAudio.volume = .35f;
 			}
 
 			if (Input.GetKeyDown (KeyCode.Mouse0)) {
+				if (this.gameObject.CompareTag("altListen") && audioPlaying == false){
+					audio.Play();
+					mAudio.Play ();
+				}
 				audioPlaying = true;
 				audio.volume = 1;
 				mAudio.volume = 0;
 			} else if (Input.GetKeyUp (KeyCode.Mouse0)) {
 				audio.volume = 0;
-				mAudio.volume = .3f;
+				mAudio.volume = .35f;
 			}
 
 		} else if (inRange == false) {
