@@ -4,6 +4,7 @@ using System.Collections;
 public class SoundtrackTrigger : MonoBehaviour {
 	public AudioClip Soundtrack;
 	AudioSource audio;
+	bool playST = false;
 
 	void Start () {
 		audio = GetComponent<AudioSource>();
@@ -21,12 +22,14 @@ public class SoundtrackTrigger : MonoBehaviour {
 				audio.volume = .45f;
 			//}
 		}
+
 	}
 	
 	void OnTriggerEnter (Collider other) {
-		if (other.CompareTag("Player")){
+		if (other.CompareTag("Player") && playST == false){
 			audio.PlayOneShot(Soundtrack, 1f);
-			Debug.Log("Soundtrack played");
+			playST = true;
+			//Debug.Log("Soundtrack played");
 		}
 		
 	}

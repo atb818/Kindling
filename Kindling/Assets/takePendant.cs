@@ -10,7 +10,6 @@ public class takePendant : MonoBehaviour {
 	public GameObject wolfSick;
 
 	public GameObject endAudio1;
-	public GameObject endAudio2;
 
 	public GameObject whiteWall;
 
@@ -31,7 +30,6 @@ public class takePendant : MonoBehaviour {
 			wolfSick.SetActive (false); 
 			whiteWall.GetComponent<UnityEngine.UI.Image>().CrossFadeAlpha(255, 30, false);
 			endAudio1.SendMessage("itsPlaytime");
-			endAudio2.SendMessage("itsPlaytime");
 		}
 	}
 

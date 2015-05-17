@@ -81,7 +81,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
-
+			Cursor.visible = false;
 			//pantManager ();
 
 			//Mouse lock toggle
@@ -89,12 +89,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 				if (mouseLock){
 					Cursor.lockState = CursorLockMode.None;
 					mouseLock = false;
-					Cursor.visible = true;
+					//Cursor.visible = true;
 					Debug.Log("Mouse Lock OFF");
 				} else if (mouseLock == false){
 					Cursor.lockState = CursorLockMode.Locked;
 					mouseLock = true;
-					Cursor.visible = false;
 					Debug.Log ("Mouse Lock ON");
 				}
 			}

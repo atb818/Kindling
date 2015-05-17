@@ -13,11 +13,17 @@ public class endAudio : MonoBehaviour {
 	
 	void Update () {
 		if (playtime) {
-			audio.PlayOneShot(audClip, 1);
+			audio.PlayOneShot(audClip, .4f);
+			StartCoroutine (finalCountdown());
 		}
 	}
 
 	void itsPlaytime(){
 		playtime = true;
+	}
+
+	IEnumerator finalCountdown(){
+		yield return new WaitForSeconds(8);
+		Application.LoadLevel ("EndingScene");
 	}
 }
